@@ -8,6 +8,7 @@ const morgan = require('morgan');
 // Load routes from routes folder
 const usersRoutes = require('./routes/users');
 const authRoutes = require('./routes/auth');
+const postsRoutes = require('./routes/posts');
 
 
 
@@ -25,9 +26,10 @@ app.use(express.json());
 app.use(helmet());
 app.use(morgan('dev'));
 
-// Routes
+// Use Routes
 app.use('/api/users', usersRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/posts', postsRoutes);
 
 app.listen(3000, () => {    
     console.log('Server started on ports 3000');
